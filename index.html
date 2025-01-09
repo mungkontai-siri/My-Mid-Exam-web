@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <link rel="stylesheet" href="mid css.css">
+    <button id="toggle-theme"> Switch mode</button>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet<link href="
+        https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+
+<body>
+    <button id="top-button" onclick="scrollToTop()">กลับขึ้นข้างบน</button>
+    <h1>
+        <a href="https://www.python.org/"><img src="https://www.python.org/static/img/python-logo.png"
+                alt="python™"></a>
+                <img alt="" width="500" height="145" loading="eager" role="presentation"
+            src="https://miro.medium.com/v2/resize:fit:1500/1*C08ufY0Tju1_1vceNlNCtA.jpeg" ALIGN="RIGHT">
+    </h1>
+    <h1 >สารบัญ</h1>
+    <div class="container">
+        <!-- สารบัญ -->
+        <div class="table-of-contents">
+            <ul>
+                <li><a href="https://www.youtube.com/embed/KZRa9DQzUpQ" target="_blank">1. การติดตั้ง PyCharm</a></li>
+                <ul>
+                    <li><a href="https://www.jetbrains.com/pycharm/download/?section=windows" target="_blank">1.1
+                            เว็บการติดตั้ง PyCharm</a></li>
+                </ul>
+                <li><a href="#oop-intro">2. OOP คืออะไร?</a></li>
+                <li><a href="#oop-principles">3. หลักการสำคัญของ OOP ที่ Python</a></li>
+                <ul>
+                    <li><a href="OOP.html#Encapsulation" target="_blank">3.1 Encapsulation (การห่อหุ้มข้อมูล)</a></li>
+                    <li><a href="OOP.html#Inheritance" target="_blank">3.2 Inheritance (การสืบทอด)</a></li>
+                    <li><a href="OOP.html#Polymorphism" target="_blank">3.3 Polymorphism (การมีหลายรูปแบบ)</a></li>
+                    <li><a href="OOP.html#Abstraction" target="_blank">3.4 Abstraction (การซ่อนรายละเอียด)</a></li>
+                </ul>
+                <li><a href="#oop-benefits">4. ข้อดีของ OOP</a></li>
+                <li><a href="#class-object">5. แนวคิดของ Class/Object</a></li>
+                <ul>
+                    <li><a href="#create-class">5.1 สร้าง Class</a></li>
+                    <li><a href="#init-self">5.2 __init__() และ self</a></li>
+                    <li><a href="#methods">5.3 method (เมธอด)</a></li>
+                </ul>
+                <li><a href="project.html#project1">6.ตัวอย่างการเขียน OOP </a></li>
+                <ul>
+                    <li><a href="project.html#project2">6.1 โปรแกรมเงินเดือนพนักงาน</a></li>
+                </ul>
+                <li><a href="Example.html#example">7.แบบฝึกหัด</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h2>Python คืออะไร?</h2>
+            <span style="font-size: 20px;">
+                Python เป็นภาษาการเขียนโปรแกรมที่ถูกพัฒนาโดย Guido van Rossum และเปิดตัวครั้งแรกในปี 1991
+                ด้วยจุดประสงค์เพื่อให้โค้ดอ่านง่ายและเข้าใจได้ง่าย โดยมีไวยากรณ์ที่สะอาดตาและกระชับ
+                ทำให้เหมาะสำหรับทั้งผู้เริ่มต้นและผู้มีประสบการณ์ในการเขียนโปรแกรม Python ใช้ได้ในหลากหลายด้าน เช่น
+                การพัฒนาเว็บ, วิทยาศาสตร์ข้อมูล, การเรียนรู้ของเครื่อง (Machine Learning) และการเขียนสคริปต์อัตโนมัติ
+                ซึ่งทำให้ Python เป็นภาษาที่ได้รับความนิยมมากที่สุดในปัจจุบัน
+            </span>
+            </b>
+            <h2 style="line-height: 2;"><b><span style="font-size: 24px;">เมื่อติดตั้งโปรแกรมเสร็จก่อนอื่นมารู้จักว่า
+                        OOP คืออะไร?</span></b></h2>
+            <span id="oop-intro" style="font-size: 18px;">การเขียนโปรแกรมเชิงวัตถุ (Object-Oriented Programming - OOP)
+                คือกระบวนการที่ใช้หลักการของ "คลาส" (Class) และ "ออบเจ็กต์" (Object)
+                เพื่อจัดระเบียบโค้ดในรูปแบบที่ง่ายต่อการเข้าใจและบำรุงรักษา โดยเราสามารถมองว่า คลาส (Class)
+                เป็นแม่แบบหรือพิมพ์เขียว (blueprint) ที่ใช้กำหนดลักษณะและพฤติกรรมของออบเจ็กต์ (Object) ขณะที่ ออบเจ็กต์
+                (Object) คือ การนำพิมพ์เขียวหรือคลาสนั้นไปใช้งานหรือสร้างเป็นตัวตนขึ้นมาเป็นอินสแตนซ์ (instance)
+                ของคลาส</span>
+            <h2>ใน Python, OOP มีคุณสมบัติหลักที่สำคัญดังนี้</h2>
+            <a href="OOP"><img
+                    src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*VzW8MXX0V75DBnCfygntCg.jpeg"
+                    alt="python™"></a>
+            <ul>
+                <li><span class="definition">คลาส (Class)</span>: เป็นแม่แบบหรือแบบแผนสำหรับการสร้างออบเจ็กต์ (Object)
+                    ซึ่งคลาสจะกำหนดลักษณะและพฤติกรรมของออบเจ็กต์ เช่น ตัวแปร (attributes) และฟังก์ชัน (methods)
+                    ที่เกี่ยวข้อง</li>
+                <li><span class="definition">ออบเจ็กต์ (Object)</span>: เป็นอินสแตนซ์ (instance) หรือสำเนาของคลาส
+                    ซึ่งแต่ละออบเจ็กต์สามารถเก็บข้อมูลและทำงานตามฟังก์ชันที่กำหนดในคลาสนั้นๆ ได้</li>
+            </ul>
+
+            <h2 id="oop-principles">หลักการสำคัญของ OOP ที่ Python ใช้ ได้แก่:</h2>
+            <ul>
+                <li><a href="OOP.html#Encapsulation" target="_blank"><span class="definition">Encapsulation
+                            (การห่อหุ้มข้อมูล)</span></a>:
+                    การเก็บข้อมูลและฟังก์ชันไว้ในคลาสเดียวกัน ทำให้สามารถควบคุมการเข้าถึงข้อมูลได้</li>
+                <li><a href="OOP.html#Inheritance" target="_blank"><span class="definition">Inheritance
+                            (การสืบทอด)</span></a>: การสร้างคลาสใหม่จากคลาสเดิม
+                    ทำให้สามารถนำคุณสมบัติและฟังก์ชันของคลาสเดิมมาใช้ใหม่ได้</li>
+                <li><a href="OOP.html#Polymorphism" target="_blank"><span class="definition">Polymorphism
+                            (การมีหลายรูปแบบ)</span></a>: การที่ออบเจ็กต์จากคลาสต่างๆ
+                    สามารถใช้ฟังก์ชันที่ชื่อเดียวกันได้ แต่ทำงานแตกต่างกันตามลักษณะของคลาสนั้นๆ</li>
+                <li><a href="OOP.html#Abstraction" target="_blank"><span class="definition">Abstraction
+                            (การซ่อนรายละเอียด)</span></a>:
+                    การซ่อนรายละเอียดภายในคลาสเพื่อให้ผู้ใช้งานสามารถใช้คลาสได้โดยไม่ต้องเข้าใจการทำงานภายในทั้งหมด</li>
+            </ul>
+
+            <h2 id="oop-benefits" style="line-height: 2;"><b><span style="font-size: 24px;">ข้อดีของ OOP</span></b></h2>
+            <ul>
+                <li style="line-height: 2;"><span style="font-size: 18px;">โค้ดเป็นระบบ ระเบียบ
+                        ลดความซ้ำซ้อนของโค้ด</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">โค้ดมีความเป็นมาตรฐาน</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">ง่ายในการนำมาใช้ซ้ำ (Reusable)</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">มีความยืดหยุ่น (Flexible) สูง</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">มีความปลอดภัย</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">ง่ายในการจัดการ</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">เพิ่ม productivity</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">ฯลฯ</span></li>
+            </ul>
+            <h2 id="class-object"><span style="font-size: 24px;"><b>﻿แนวคิดของ Class/Object</b></span></h2>
+            <p><span style="font-size: 18px;">แนวคิดของคลาสจะแบ่งองค์ประกอบออกเป็น 3 ส่วนหลัก ๆ ดังต่อไปนี้</span><br>
+            </p>
+            <ul>
+                <li style="line-height: 2;"><span style="font-size: 14px;"><span style="font-size: 18px;">ออบเจ็กต์
+                            (Object):
+                            คือ ตัวตนของวัตถุนั้น ๆ<br></span></span></li>
+                <li style="line-height: 2;"><span style="font-size: 14px;"><span style="font-size: 18px;">คุณลักษณะ
+                            (Attributes): คือ ส่วนประกอบที่ทำให้เกิดออปเจ็กต์นั้นขึ้นมา เช่น ถ้าคลาสคือคน
+                            ออปเจ็กต์ก็จะประกอบไปด้วย ชื่อ อายุ สัญชาติ เพศ ผิว น้ำหนัก ส่วนสูง เป็นต้น</span></span>
+                </li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">การกระทำ (Behavior): คือ การกระทำ พฤติกรรม
+                        ของออปเจ็กต์ ถ้าออปเจ็กต์คือคน ก็จะมีพฤติกรรมหรือการกระทำ เช่น กิน นอน เที่ยว ทำงาน
+                        เป็นต้น</span></li>
+            </ul>
+            <p style="line-height: 2;"><span style="font-size: 14px;"><span
+                        style="font-size: 18px;"><br></span></span><span style="font-size: 18px;">ตัวอย่างการสร้าง Class
+                    แมว</span></p>
+            <p></p>
+            <p style="line-height: 2;"><img style="width: 100%;"
+                    src="https://devhub.in.th/media/django-summernote/2023-10-19/42a21288-11fe-41f9-becb-5f209f64c4aa.jpg">
+                <font face="Helvetica Neue" color="#424242"><span style="font-size: 18px;"><br></span></font>
+            </p>
+            <h2 id="create-class">ตัวอย่างการสร้าง Class แมว </h2>
+            <pre
+                style="line-height: 2;"><div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 16px; line-height: 24px;"><div><span style="color: #569cd6;">class</span> Cat:</div><div>    <span style="color: #569cd6;">def</span> __init__(self, name, age):</div><div>        <span style="color: #569cd6;">self</span>.name = name</div><div>        <span style="color: #569cd6;">self</span>.age = age</div><br><div>    <span style="color: #569cd6;">def</span> display_name(self):</div><div>        print(<span style="color: #569cd6;">self</span>.name, <span style="color: #ce9178;">"is my cat name"</span>)</div><br><div>cat1 = Cat(<span style="color: #ce9178;">"SomSom"</span>, <span style="color: #b5cea8;">5</span>)</div><div>cat2 = Cat(<span style="color: #ce9178;">"Salid Noi"</span>, <span style="color: #b5cea8;">7</span>)</div><br><div>print(cat1.name) <span style="color: #6a9955;"># Output: SomSom</span></div><div>print(cat2.age) <span style="color: #6a9955;"># Output: 7</span></div><br><div>cat2.display_name() <span style="color: #6a9955;"># Output: Salid Noi is my cat name</span></div></div></pre>
+            <p style="line-height: 2;"><span style="font-size: 18px;">﻿จากตัวอย่างด้านบนก็คือการสร้างคลาสแบบเบื้องต้น
+                    รวมไปถึงการเรียกใช้งาน class&nbsp;</span></p>
+            <ul>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;&nbsp;<code
+                            style="font-size: 16.2px;">Cat</code>&nbsp; คือ ชื่อคลาส (ขึ้นต้นด้วยตัวพิมพ์ใหญ่)</span>
+                </li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;&nbsp;<code
+                            style="font-size: 16.2px;">__init__()</code>&nbsp;คือ เมธอดพิเศษเอาไว้ใช้สำหรับเริ่มต้น
+                        (Initialize)
+                        คลาส</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;&nbsp;<code
+                            style="font-size: 16.2px;">display_name()</code>&nbsp; คือ เมธอด
+                        ในคำสั่งนี้ก็ทำเพียงแค่แสดงผลคำว่า
+                        "... is my cat name"</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;<code
+                            style="font-size: 16.2px;">cat1</code>&nbsp; และ&nbsp;&nbsp;<code
+                            style="font-size: 16.2px;">cat2</code>&nbsp;คือ ออบเจ็กต์ (Objects)</span></li>
+                <li style="line-height: 2;"><code style="font-size: 16.2px;">cat1.display_name()</code><span
+                        style="font-size: 18px;">&nbsp; คือ การเรียกใช้เมธอดของออบเจ็กต์ <b>cat1</b></span></li>
+            </ul>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/gqUs_TB8zG4" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <h2 id="init-self" style="line-height: 2;"><span style="font-size: 24px;"><b>__init__( ) และ self ใน
+                        Python</b></span></h2>
+            <p style="line-height: 2;"><span style="font-size: 18px;">ในภาษา Python นั้น&nbsp;&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">__init__()</code><span
+                    style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px;">&nbsp;เป็นเมธอดพิเศษ (Special
+                    or Dunder
+                    Method) หรือที่เรียกว่าคอนสตรัคเตอร์ (Constructor) ก็ได้เช่นกัน ซึ่ง&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">__init__()</code><span
+                    style="font-size: 18px;">&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;จะถูกเรียกใช้โดยอัตโนมัติเมื่อมีการสร้างออบเจกต์ของคลาสขึ้นมา
+                    หรือเรียกได้ว่าจะเป็นส่วนของการเริ่มต้น (initialize) ของ class</span></p>
+            <p style="line-height: 1;"><br></p>
+            <p style="line-height: 2;"><span style="font-size: 18px;">เมธอด&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">__init__()</code><span
+                    style="font-size: 18px;">ใช้พารามิเตอร์&nbsp;&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">self</code><span
+                    style="font-size: 18px;">&nbsp;
+                    ซึ่งเป็นการอ้างอิงถึงวัตถุที่กำลังสร้าง เพื่อให้สามารถเข้าถึงคุณสมบัติ (Attributes) และเมธอด
+                    (Methods)
+                    ของวัตถุ โดยพารามิเตอร์&nbsp;</span><span style="font-size: 18px;">&nbsp;</span><code
+                    style="font-size: 16.2px;">self</code><span style="font-size: 18px;">&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;ต้องเป็นพารามิเตอร์แรกในเมธอดที่กำหนดในคลาส ถึงแม้ว่าใน Python
+                    เราสามารถกำหนดพารามิเตอร์เป็นชื่ออะไรก็ได้ที่ไม่ใช่ self แต่สุดท้ายแล้วก็คือธรรมเนียมปฏิบัติ
+                    (convension)
+                    ของภาษาว่าควรต้องใช้&nbsp;</span><span style="font-size: 18px;">&nbsp;</span><code
+                    style="font-size: 16.2px;">self</code><span style="font-size: 18px;">&nbsp;ถึงจะเหมาะสมที่สุด</span>
+            </p>
+            <pre
+                style="line-height: 2;"><div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 16px; line-height: 24px;"><div><span style="color: #569cd6;">class</span> Cat:</div><div>    <span style="color: #569cd6;">def</span> __init__(self, name, age):</div><div>        <span style="color: #569cd6;">self</span>.name = name</div><div>        <span style="color: #569cd6;">self</span>.age = age</div></div></pre>
+            <p style="line-height: 2;"><span style="font-size: 18px;">จากตัวอย่างของคลาส&nbsp;&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">Cat</code><span
+                    style="font-size: 18px;">&nbsp;ด้านบนจะเห็นว่าได้มีการประกาศพารามิเตอร์ 3 ตัว (รวม&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">self</code><span
+                    style="font-size: 18px;">&nbsp;ด้วย) นั่นก็คือ&nbsp;&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">self</code><span
+                    style="font-size: 18px;">&nbsp;,&nbsp;&nbsp;</span><span style="font-size: 18px;">&nbsp;</span><code
+                    style="font-size: 16.2px;">name</code><span style="font-size: 18px;">&nbsp;และ&nbsp;</span><span
+                    style="font-size: 18px;">&nbsp;</span><code style="font-size: 16.2px;">age</code><span
+                    style="font-size: 18px;">&nbsp;ครับ</span></p>
+            <h2 id="methods" style="line-height: 2;"><span style="font-size: 24px;"><b>method (เมธอด)</b></span></h2>
+            <p style="line-height: 2;"><span style="font-size: 18px;">เมธอด (method) คือฟังก์ชันที่อยู่ภายในคลาส
+                    โดยเมธอดจะเป็นตัวกำหนดการกระทำ (behavior) ของคลาส ถ้าสังเกตให้ดีจะเห็นว่า method ก็คือฟังก์ชัน ๆ
+                    หนึ่ง
+                    เพียงแต่ว่าเป็นฟังก์ชันที่อยู่ภายใต้คลาสนั่นเอง</span></p>
+            <p style="line-height: 2;"><span style="font-size: 18px;">จากตัวอย่างโค้ดด้านบนสุด จะเห็นว่าเราสามารถเข้าถึง
+                    method
+                    ของ class ได้ดังต่อไปนี้</span></p>
+            <pre style="line-height: 2;"><b>cat2.display_name()</b></pre>
+            <ul>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;<code
+                            style="font-size: 16.2px;">cat2</code>&nbsp;คือออปเจคท์</span></li>
+                <li style="line-height: 2;"><span style="font-size: 18px;">&nbsp;<code
+                            style="font-size: 16.2px;">displya_name()</code>&nbsp;คือเมธอด</span></li>
+            </ul>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/u8qEX1rp6Z8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

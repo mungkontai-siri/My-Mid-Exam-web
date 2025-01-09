@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมเงินเดือนพนักงาน</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="project.js"></script>
+</head>
+<body>
+    
+    <h1 id="project1">ตัวอย่าง OOP [โปรแกรมเงินเดือนพนักงาน]</h1>
+
+    <pre><code id="project2">
+# Class พนักงาน
+class Employee:
+    def __init__(self, emp_id, name, position, salary, working_hours):
+        self.emp_id = emp_id     # รหัสพนักงาน
+        self.name = name         # ชื่อพนักงาน
+        self.position = position # ตำแหน่ง
+        self.salary = salary     # เงินเดือน
+        self.working_hours = working_hours  # เวลาทำงานปกติ (ชั่วโมง/สัปดาห์)
+
+    def display_info(self):
+        """แสดงข้อมูลของพนักงาน"""
+        print(f"รหัสพนักงาน: {self.emp_id}")
+        print(f"ชื่อ: {self.name}")
+        print(f"ตำแหน่ง: {self.position}")
+        print(f"เงินเดือน: {self.salary} บาท")
+        print(f"เวลาทำงานปกติ: {self.working_hours} ชั่วโมง/สัปดาห์\\n")
+
+    def calculate_salary_per_hour(self):
+        """คำนวณเงินเดือนต่อชั่วโมง"""
+        return self.salary / (self.working_hours * 4)  # คำนวณจากเดือนที่มี 4 สัปดาห์
+
+    def calculate_overtime(self, worked_hours):
+        """
+        คำนวณโอที
+        worked_hours: ชั่วโมงที่ทำงานจริงในสัปดาห์ (รวมโอที)
+        """
+        overtime_hours = worked_hours - self.working_hours
+        if overtime_hours > 0:
+            hourly_rate = self.calculate_salary_per_hour()
+            overtime_pay = overtime_hours * hourly_rate * 1.5  # คำนวณโอที 1.5 เท่า
+            return overtime_pay, overtime_hours
+        else:
+            return 0, 0  # ไม่มีโอที
+
+# Class สำหรับ HR
+class HR(Employee):
+    def __init__(self, emp_id, name, salary, working_hours):
+        super().__init__(emp_id, name, "HR", salary, working_hours)
+
+# Class สำหรับ IT
+class IT(Employee):
+    def __init__(self, emp_id, name, salary, working_hours):
+        super().__init__(emp_id, name, "IT", salary, working_hours)
+
+# Class สำหรับ Accounting
+class Accounting(Employee):
+    def __init__(self, emp_id, name, salary, working_hours):
+        super().__init__(emp_id, name, "Accounting", salary, working_hours)
+
+# การสร้างอ็อบเจ็กต์พนักงาน
+employee1 = HR("001", "นพดล", 30000, 40)
+employee2 = IT("002", "จิราภา", 50000, 45)
+employee3 = Accounting("003", "สุนิษา", 25000, 35)
+
+# เพิ่มพนักงานทั้งหมดในลิสต์
+employees = [employee1, employee2, employee3]
+    </code></pre>
+
+    <!-- เพิ่มปุ่ม Output -->
+    <button id="output" onclick="ask_and_calculate_overtime()">Output</button>
+    <div id="result"></div>
+    <h1>ถ้ากรอกข้อมูลถูกต้อง</h1>
+    <pre><code>
+    กรุณากรอกรหัสพนักงาน (เช่น 001, 002, 003): 001
+    รหัสพนักงาน: 001
+    ชื่อ: นพดล
+    ตำแหน่ง: HR
+    เงินเดือน: 30000 บาท
+    เวลาทำงานปกติ: 40 ชั่วโมง/สัปดาห์
+    
+    กรุณากรอกจำนวนชั่วโมงทำงานของ นพดล ในสัปดาห์นี้: 50
+    นพดล ทำโอที 10.0 ชั่วโมง และได้รับค่าโอที 3750.00 บาท
+    เงินเดือนรวมโอที: 33750.00 บาท
+    </code></pre>   
+
+    <h1>หากกรอกรหัสไม่ถูกต้อง:</h1>
+    <pre><code>
+    กรุณากรอกรหัสพนักงาน (เช่น 001, 002, 003): 004
+    รหัสพนักงานไม่ถูกต้อง หรือไม่มีข้อมูลในระบบ  </code></pre> 
+
+<button id="home-button" onclick="window.location.href='mid html.html'">หน้าหลัก</button>
+</body>
+</html>
+

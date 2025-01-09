@@ -1,0 +1,110 @@
+/* สไตล์พื้นฐาน */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: left;
+    padding: 20px;
+}
+
+/* สไตล์สำหรับ Light Mode */
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.light-mode button {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* สไตล์สำหรับ Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* สไตล์ปุ่มเมื่อ hover */
+button:hover {
+    opacity: 0.8;
+}
+
+/* ปุ่มที่มุมซ้ายบนสุด */
+button#toggle-theme {
+    position: fixed;  /* ใช้ fixed เพื่อให้ปุ่มอยู่ที่ตำแหน่งคงที่ */
+    top: 20px;        /* ระยะห่างจากด้านบน */
+    left: 20px;       /* ระยะห่างจากด้านซ้าย */
+    z-index: 1000;    /* ให้ปุ่มอยู่เหนือเนื้อหาหลัก */
+}
+
+h1 {
+    display: flex;
+    justify-content: center; /* จัดกลางในแนวนอน */
+    align-items: center;     /* จัดกลางในแนวตั้ง */
+    height: 20vh;           /* กำหนดความสูงของหน้าเว็บให้เท่ากับ 100% ของความสูงหน้าจอ */
+    margin: 0;               /* เอาระยะห่างออกจาก h1 */
+    text-align: center;      /* จัดข้อความให้กึ่งกลาง */
+}
+
+#home-button {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* สีน้ำเงิน */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  #home-button:hover {
+    background-color: #0056b3;
+  }
+  
+  #result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+
+  pre {
+    background-color: #efc0c0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: red;  /* สีของตัวอักษร */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}  

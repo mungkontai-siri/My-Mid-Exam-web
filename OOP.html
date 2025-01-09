@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP</title>
+    <link rel="stylesheet" href="mid css.css">
+    <button id="toggle-theme"> Switch mode</button>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <button id="home-button" onclick="window.location.href='mid html.html'">หน้าหลัก</button>
+    <h1>หลักการของ OOP ใน Python</h1>
+    <h2 id="Encapsulation">Encapsulation การห่อหุ้มข้อมูล / การซ่อนข้อมูล</h2>
+    <p>ห่ออะไร ? หุ้มยังไง ? อันนี้ก็ต้องย้อนไปตรงที่บอกตอนแรกว่าโปรแกรมเชิงวัตถุเนี่ยมันต้องมี “คุณสมบัติ” และ
+        “พฤติกรรม” ซึ่งสองสิ่งนี้ก็คือสิ่งที่เราต้องห่อหุ้มเอาไว้นั่นเอง คำถามต่อมาก็คือทำไมเราถึงต้องหุ่มเอาไว้
+        ห่อแล้วจะได้ประโยชน์อะไร ลองนึกภาพถึงโปรแกรมที่มี object อยู่หลายตัวซึ่งแต่ละตัวก็มีการติดต่อรับส่งข้อมูลกัน
+        ถ้าไม่มีการห่อหุ้มเอาไว้ แต่ละ object เข้าถึงและเปลี่ยนแปลงคุณสมบัติของ object อื่นได้ทั้งหมด
+        อาจจะทำให้เกิดความผิดพลาดในการทำงานได้ถ้าถูกเปลี่ยนแปลงคุณสมบัติโดยไม่มีการควบคุม
+
+        ในเรื่องนี้การห่อหุ้มจึงเข้ามาช่วยนั่นเอง โดยการห่อหุ้มจะทำได้เมื่อแต่ละวัตถุมีสิ่งที่มีสถานะเป็น private
+        อยู่ภายใน class ทำให้เราซ่อนการมองเห็นหรือการเข้าถึงจากภายนอกได้ลองดูจากตัวอย่าง class ได้โนเสาร์ของเรากัน</p>
+    <img fetchpriority="high" decoding="async" width="1024" height="415"
+        src="https://b2dmain-ruk.cdn.jelastic.net/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1.webp" alt=""
+        class="wp-image-82049"
+        srcset="https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1.webp 1024w, https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1-300x122.webp 300w, https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1-768x311.webp 768w, https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1-600x243.webp 600w, https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1-148x60.webp 148w, https://www.borntodev.com/wp-content/uploads/2020/04/oop_encapsulate-1024x415-1-222x90.webp 222w"
+        sizes="(max-width: 1024px) 100vw, 1024px">
+    <br>
+    <p>ในภาพนี้จะมีส่วนที่ห่อหุ้มเอาไว้ กับส่วนที่เปิดให้เข้าถึงได้ ส่วนที่เข้าถึงได้ได้แก่ เราให้ได้โนเสาร์ของเราเรียน
+        และเราให้ได้โนเสาร์ของเรากักตัว
+        จะเห็นว่าสิ่งที่เข้าถึงได้นั้นเราไม่ได้เปลี่ยนแปลงคุณสมบัติหรือพฤติกรรมของไดโนเสาร์โดยตรง
+        เราเพียงแค่เรียกคำสั่งที่ไดโนเสาร์เปิดไว้ให้เท่านั้น
+        ส่วนการจัดการภายในนั้นไดโนเสาร์เป็นคนจัดการเองโดยภายนอกไม่จำเป้นต้องรู้ ซึ่งการที่ object หรือ class
+        มีการห่อหุ้มและการเปิดเผยนั้นรวมแล้วก็คือหัวใจของการ Encapsulation นั่นเอง</p>
+    <br>
+    <H2 id="Inheritance">Inheritance การสืบทอดคุณสมบัติ</H2>
+    <p>จากสองข้อที่ผ่านมาเราสามารถควบคุมการเข้าถึงได้แล้ว ต่อให้เป็นโปรแกรมขนาดใหญ่ที่มีความซับซ้อน
+        ข้อมูลและการทำงานก็จะยังคงถูกต้องอยู่ แต่อีกสิ่งที่มักจะเกิดในการเขียนโปรแกรมก็คือการที่มีหลายๆ class
+        ทำงานคล้ายๆกัน แต่ถ้าจะให้รวมไว้ด้วยกันก็ทำไม่ได้เพราะไม่ได้เหมือนกันทั้งหมด ดังนั้นเราจึงต้องใช้การ Inheritance
+        เพื่อที่จะแก้ปัญหาแบบนี้ โดยการสืบทอดคุณสมบัตินั้นก็ตรงตัวคือ เป็นการเอาคุณสมบัติของ class หนึ่งไปสร้างเป็นอีก
+        class หนึ่งและยังสามารถเพิ่มความสามารถเข้าไปได้อีก ซึ่งก็เป็นการ Reuse โค้ดที่เป็น class นั่นเอง</p>
+    <img decoding="async" width="1024" height="718"
+        src="https://b2dmain-ruk.cdn.jelastic.net/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1.webp" alt=""
+        class="wp-image-82050"
+        srcset="https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1.webp 1024w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1-300x210.webp 300w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1-768x539.webp 768w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1-600x421.webp 600w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1-86x60.webp 86w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-3-1-1024x718-1-128x90.webp 128w"
+        sizes="(max-width: 1024px) 100vw, 1024px">
+    <br>
+    <p>เช่นเรามี class “สัตว์สี่ขา” ที่มีคุณสมบัติคือมี “ขา” และมีพฤติกรรมคือ “เดิน” พอเราจะสร้าง class “แมว” กับ
+        “สุนัข” ขึ้นมาใหม่ ทั้งแมวและสุนัขต่างก็เป็นสัตว์สี่ขาเหมือนกันแทนที่จะสร้าง ขา กับ การเดิน ขึ้นมาใหม่
+        เราก็ให้สืบทอดมาจาก class สัตว์สี่ขาได้เลย และก็ยังสามารถเพิ่มเติมคุณสมบัติหรือพฤติกรรมเพิ่มขึ้นได้อีกอย่าง
+        “ซื่อสัตย์” และ “เห่า” ในสุนัข กับ “อ้อน” ในแมว </p>
+    <br>
+    <h2 id="Polymorphism">Polymorphism การมีหลายรูปแบบ</h2>
+    <p>ลองนึกถึงการที่เราใช้ Inheritance เป็นจำนวนมาก มี class ที่สืบทอดคุณสมบัติกันไปหลายรูปแบบ แล้วถ้าเราต้องการจะเก็บ
+        class ต่างๆเหล่านั้นเข้าด้วยกันใน list หรือต้องการจะเรียกใช้งานทุก class ให้ได้เหมือนๆกัน เราจึงต้องใช้
+        Polymorphism ในการทำสิ่งเหล่านี้ โดยแทนที่ class ต้นแบบจะสร้าง “พฤติกรรม” เอาไว้และให้ class
+        อื่นมาสืบทอดไปใช้งาน ก็เหลือเพียงแค่กำหนดชื่อ “พฤติกรรม” ให้ class ที่มาสืบทอดเอาไปสร้างการทำงานเอาเองแทน
+        อย่างคลาสสุนัขกับแมวในข้อก่อนแทนที่ class สัตว์สี่ขา จะสร้าง “เดิน”
+        เอาไว้ให้เลยว่าเดินยังไงก็ทำไว้แค่ชื่อพฤติกรรมว่าเดินเฉยๆ ให้สุนัขกับแมวเอาไปสร้างรายละเอียดเอาเองทีหลัง
+        นั่นจะทำให้เราสามารถสั่งให้สุนัขและแมวเดินได้เหมือนกัน โดยที่ทั้งสองชนิดเดินไม่เหมือนกันก็ตาม</p>
+    <img class="/"
+        src="https://4.bp.blogspot.com/-_e0bG8KAEUw/V6dZxdSVBAI/AAAAAAAAMJE/0wvmKDjjm9I2MkRtbfgDqGk4EVzFxkm4wCLcB/s1600/inheritance.jpg"
+        alt="" border="0">
+    <p>ถ้าเราจะสร้างโปรแกรมเกี่ยวกับ รถยนต์ ขึ้นมา แทนที่เราจะสร้างคลาส "รถยนต์" ขึ้นมาได้เลย ให้นึกก่อนว่าสำหรับ
+        "รถยนต์" แล้ว มันอยู่ในกลุ่มที่ใหญ่กว่านี้อีกมั้ย ลองคิดๆ อ้อ สำหรับ "รถยนต์" แล้วมันถึงว่าเป็น "ยานพาหนะ"
+        อย่างหนึ่งนี่นา ดั้งนั้น Abstract ในที่นี้จึงเป็นคลาส "ยานพาหนะ" ให้เราสร้างยานพาหนะขึ้นมา แล้วเรียกใช้จาก Type
+        เช่นเรียกใช้ .move() ส่วนการที่ object จะ move แบบไหนนั้น ให้ไปสร้างคลาสลูกแล้ว override method ทับลงไปอีกที
+
+        ด้วยวิธีการนี้ เราจะไม่ต้องแก้โค้ดเก่าๆ แต่สามารถปรับเปลี่ยนการทำงานได้</p>
+    <h2 id="Abstraction">Abstraction การรู้แค่ที่จำเป็น</h2>
+    <p>ในข้อนี้นั้นเรียกได้ว่าเป็นผลพลอยได้มาจาก Encapsulation เลยก็ว่าได้ เพราะเป็นการที่เราเปิดให้คนอื่นหรือก็คือ
+        object อื่นเรียกใช้งาน object ของเราได้โดยที่ไม่จำเป็นต้องรู้การทำงานหรือรายละเอียดต่างๆข้างในเลย
+        อย่างในชีวิตประจำวันของเราก็พบกับการ Abstraction อยู่ตลอดเวลา อย่างการขับรถ, การใช้งานคอมพิวเตอร์,
+        การใช้สมาร์ทโฟน หรือการใช้งานเว็บต่างๆ เช่นตอนที่เราใช้ Facebook เราเพียงแค่ไถหน้าฟีด กดดูแจ้งเตือน ตอบแชทเพื่อน
+        อะไรประมาณนั้น ซึ่งเราก็สามารถใช้งานได้ง่ายโดยที่เราไม่รู้ด้วยซ้ำว่าเบื้องหลังมันทำงานอะไรบ้าง
+        ตอนเราพิมพ์แชทคุยกับเพื่อน การทำงานข้างหลังต้องส่งข้อมูลยังไง เข้ารหัสแบบไหน ซึ่งลักษณะแบบนี้ก็คือ Abstraction
+    </p>
+    <img decoding="async" width="1024" height="631"
+        src="https://b2dmain-ruk.cdn.jelastic.net/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1.webp" alt=""
+        class="wp-image-82051"
+        srcset="https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1.webp 1024w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1-300x185.webp 300w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1-768x473.webp 768w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1-600x370.webp 600w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1-97x60.webp 97w, https://www.borntodev.com/wp-content/uploads/2020/04/OOP-Page-2-1024x631-1-146x90.webp 146w"
+        sizes="(max-width: 1024px) 100vw, 1024px">
+</body>
+
+</html>

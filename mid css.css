@@ -1,0 +1,183 @@
+/* Default Light Mode */
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button.dark {
+  background-color: #333;
+  color: white;
+}
+
+button.light {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+/* ให้ wrapper ของวิดีโอมีการตอบสนองกับขนาดหน้าจอ */
+.video-container {
+  position: relative; /* ทำให้สามารถควบคุมตำแหน่งของ iframe ได้ */
+  width: 100%; /* กำหนดความกว้างให้เต็มพื้นที่ */
+  padding-top: 56.25%; /* สัดส่วน 16:9 (9 / 16 = 0.5625 หรือ 56.25%) */
+  height: 0; /* ใช้ padding-top ในการสร้างความสูง */
+  overflow: hidden; /* ซ่อนส่วนเกินของ iframe ที่ไม่ใช่พื้นที่ที่ต้องการ */
+  max-width: 100%; /* ขยายขนาดของ container ตามขนาดหน้าจอ */
+  background: black; /* เพิ่มพื้นหลังสีดำเพื่อให้ดูสวยงาม */
+}
+
+/* ให้ iframe อยู่ภายใน container และขยายเต็มพื้นที่ */
+.video-container iframe {
+  position: absolute; /* ใช้เพื่อให้ iframe ครอบคลุมพื้นที่ทั้งหมดของ container */
+  top: 0;
+  left: 0;
+  width: 100%; /* ขยายขนาด iframe ใหญ่สุดตามขนาดของ container */
+  height: 100%; /* ให้ iframe มีความสูง 100% ตามพื้นที่ของ container */
+}
+
+/* เพิ่มความยืดหยุ่นให้วิดีโอในมุมมองมือถือ */
+@media (max-width: 767px) {
+  .video-container {
+    padding-top: 56.25%; /* สัดส่วน 16:9 */
+  }
+}
+
+/* การตั้งค่าภาพรวมให้เนื้อหาดูดี */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* จัดวาง Table of Contents และเนื้อหาหลัก */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  position: relative; /* เพื่อให้ sticky ทำงาน */
+}
+
+.table-of-contents {
+  flex: 1;
+  padding-right: 40px;
+  border-right: 2px solid #ffffff; /* เพิ่มเส้นขวาให้ระหว่างสารบัญและเนื้อหาหลัก */
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: #ffffff; /* พื้นหลัง */
+}
+
+.main-content {
+  flex: 4;
+  padding-left: 30px;
+}
+
+/* ปรับรูปแบบลิงก์ในสารบัญ */
+.table-of-contents ul {
+  list-style-type: none;
+  padding: 8px;
+}
+
+.table-of-contents li {
+  margin: 1px 8px;
+}
+
+.table-of-contents a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.table-of-contents a:hover {
+  text-decoration: underline;
+}
+
+/* สไตล์สำหรับหัวข้อ */
+h1, h2 {
+  color:blue;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/* สไตล์สำหรับข้อความในเนื้อหา */
+.main-content p {
+  font-size: 25px;
+}
+
+/* สไตล์สำหรับการเน้นคำในเนื้อหา */
+.definition {
+  font-weight: bold;
+  color: #2a9d8f;
+}
+
+
+h1 {
+    padding-left: 30px; /* ขยับข้อความไปทางขวา 10px */
+}
+
+.img {
+  max-width: 100%;   /* ทำให้ภาพไม่เกินขนาดของบล็อกที่บรรจุ */
+  height: auto;      /* คงอัตราส่วนของภาพ */
+}
+
+#home-button {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#home-button:hover {
+  background-color: #0056b3;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+#top-button {
+  position: fixed; /* Fixes the button on the screen */
+  bottom: 20px; /* Position at the bottom */
+  right: 20px; /* Position at the right */
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  z-index: 9999; /* ให้ปุ่มอยู่ด้านหน้าสุด */
+}
+
+/* Hover effect for the button */
+#top-button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,54 @@
+/* สไตล์พื้นฐานของหน้าเว็บ */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+pre {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #4CAF50; /* สีเขียว */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+/* สไตล์พื้นฐานเพื่อทำให้โค้ดดูสวยงาม */
+pre {
+  background-color: #000000;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
